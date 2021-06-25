@@ -1,0 +1,37 @@
+﻿@page
+@model SurveyUP.Pages.Questions.DetailsModel
+
+<div>
+    <h4>Szczegóły pytań</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.VtsTbQuestion.Survey.Title)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.VtsTbQuestion.Survey.Title)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.VtsTbQuestion.QuestionId)
+        </dt>
+        <dt class="col-sm-10">
+            @Html.DisplayFor(model => model.VtsTbQuestion.QuestionId)
+        </dt>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.VtsTbQuestion.QuestionText)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.VtsTbQuestion.QuestionText)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.VtsTbQuestion.DisplayOrder)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.VtsTbQuestion.DisplayOrder)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.VtsTbQuestion.QuestionId" class="btn btn-secondary">Edytuj</a>
+    <a asp-page="./Index" class="btn btn-danger">Powrót do listy pytań</a>
+</div>

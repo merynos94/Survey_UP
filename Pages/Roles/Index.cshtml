@@ -1,0 +1,26 @@
+﻿@page
+@model SurveyUP.Pages.Roles.IndexModel
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Rola
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.AspNetRoles) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item)
+            </td>            
+            <td>
+                <a asp-page="./Details" asp-route-id="@item" class="btn btn-secondary">Szczegóły</a> 
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+<a asp-page="../Index" class="btn btn-danger">Powrót na strone główną</a>

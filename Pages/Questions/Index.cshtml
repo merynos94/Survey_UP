@@ -1,0 +1,48 @@
+﻿@page
+@model SurveyUP.Pages.Questions.IndexModel
+
+<p>
+    <a asp-page="Create" class="btn btn-success">Stwórz pytanie </a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>               
+                @Html.DisplayNameFor(model => model.VtsTbQuestion[0].Survey.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VtsTbQuestion[0].QuestionId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VtsTbQuestion[0].QuestionText)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VtsTbQuestion[0].DisplayOrder)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.VtsTbQuestion) {
+        <tr>
+            <td>                
+                @Html.DisplayFor(modelItem => item.Survey.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QuestionId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QuestionText)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DisplayOrder)
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.QuestionId" class="btn btn-primary">Edytuj</a>
+                <a asp-page="./Details" asp-route-id="@item.QuestionId" class="btn btn-secondary">Szczegóły</a>
+                <a asp-page="./Delete" asp-route-id="@item.QuestionId" class="btn btn-danger">Usuń</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+<a asp-page="../Index" class="btn btn-danger">Powrót na strone główną</a>

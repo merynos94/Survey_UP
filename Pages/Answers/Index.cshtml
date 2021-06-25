@@ -1,0 +1,51 @@
+﻿@page
+@model SurveyUP.Views.Answers.IndexModel
+
+<p>    
+    <a asp-page="./Create" class="btn btn-success">Utwórz odpowiedź</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.VtsTbAnswer[0].Question.QuestionText)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VtsTbAnswer[0].AnswerText)
+            </th>
+            <th>
+            @Html.DisplayNameFor(model => model.VtsTbAnswer[0].DefaultText)
+        </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VtsTbAnswer[0].AnswerType)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.VtsTbAnswer) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Question.QuestionText)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AnswerText)
+            </td>
+            <td>
+            @Html.DisplayFor(modelItem => item.DefaultText)
+        </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.AnswerType.Description)
+            </td>
+
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.AnswerId" class="btn btn-primary">Edytuj</a> 
+                <a asp-page="./Details" asp-route-id="@item.AnswerId" class="btn btn-secondary">Szczegóły</a> 
+                <a asp-page="./Delete" asp-route-id="@item.AnswerId" class="btn btn-danger">Usuń</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+<a asp-page="../Index" class="btn btn-danger">Powrót do strony głównej</a>

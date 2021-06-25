@@ -1,0 +1,34 @@
+﻿@page
+@model SurveyUP.Pages.Voters.IndexModel
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Votes[0].SurveyTitle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Votes[0].SurveyCount)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Votes)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SurveyTitle)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SurveyCount)
+                </td>
+                <td>
+                    <a asp-page="./Voters" asp-route-id="@item.SurveyId" class="btn btn-primary">Odpowiedzi</a>
+                    <a asp-page="./Summary" asp-route-id="@item.SurveyId" class="btn btn-secondary">Podsumowanie</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a asp-page="../Index" class="btn btn-danger">Powrót do strony głównej</a>

@@ -1,0 +1,278 @@
+﻿{
+   "CodeGenerationMode": 0,
+   "ContextClassName": "N3mikosContext",
+   "ContextNamespace": null,
+   "DefaultDacpacSchema": null,
+   "FilterSchemas": false,
+   "IncludeConnectionString": false,
+   "ModelNamespace": "Tables",
+   "OutputContextPath": null,
+   "OutputPath": "Models",
+   "ProjectRootNamespace": "SurveyUP",
+   "Schemas": null,
+   "SelectedHandlebarsLanguage": 0,
+   "SelectedToBeGenerated": 2,
+   "Tables": [
+      {
+         "Name": "[dbo].[AspNetRoleClaims]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[AspNetRoles]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[AspNetUserClaims]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[AspNetUserLogins]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[AspNetUserRoles]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[AspNetUsers]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[AspNetUserTokens]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[vts_tbAnswer]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[vts_tbAnswerConnection]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[vts_tbAnswerProperty]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[vts_tbAnswerType]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[vts_tbBranchingRule]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[vts_tbEmail]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[vts_tbEmailNotificationSettings]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[vts_tbFile]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[vts_tbFilter]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[vts_tbFilterRule]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[vts_tbFolders]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[vts_tbInvitationLog]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[vts_tbInvitationQueue]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[vts_tbLanguageMessageType]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[vts_tbLayoutMode]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[vts_tbLibrary]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[vts_tbLibraryLanguage]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[vts_tbMessageCondition]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[vts_tbMultiLanguage]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[vts_tbMultiLanguageMode]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[vts_tbMultiLanguageText]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[vts_tbNotificationMode]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[vts_tbPageOption]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[vts_tbProgressDisplayMode]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[vts_tbQuestion]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[vts_tbQuestionGroups]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[vts_tbQuestionSectionGridAnswer]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[vts_tbQuestionSectionOption]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[vts_tbQuestionSelectionMode]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[vts_tbRegularExpression]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[vts_tbRepeatableSection]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[vts_tbResumeMode]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[vts_tbRole]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[vts_tbRoleSecurityRight]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[vts_tbSecurityRight]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[vts_tbSkipLogicRule]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[vts_tbSurvey]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[vts_tbSurveyAsset]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[vts_tbSurveyEntryQuota]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[vts_tbSurveyIPRange]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[vts_tbSurveyLanguage]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[vts_tbSurveyLayout]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[vts_tbSurveyToken]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[vts_tbSurveyWebSecurity]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[vts_tbUnAuthentifiedUserAction]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[vts_tbUser]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[vts_tbUserAnswerType]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[vts_tbUserRegularExpression]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[vts_tbUserRole]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[vts_tbUserSetting]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[vts_tbUserSurvey]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[vts_tbVoter]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[vts_tbVoterAnswers]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[vts_tbVoterEmail]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[vts_tbWebSecurityAddIn]",
+         "ObjectType": 0
+      }
+   ],
+   "UiHint": "alpha.n3mikos.dbo",
+   "UseBoolPropertiesWithoutDefaultSql": false,
+   "UseDatabaseNames": false,
+   "UseDbContextSplitting": false,
+   "UseFluentApiOnly": true,
+   "UseHandleBars": false,
+   "UseInflector": false,
+   "UseLegacyPluralizer": true,
+   "UseNoConstructor": false,
+   "UseNoNavigations": false,
+   "UseNodaTime": false,
+   "UseNullableReferences": false,
+   "UseSpatial": false
+}

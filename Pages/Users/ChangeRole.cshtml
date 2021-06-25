@@ -1,0 +1,32 @@
+﻿@page
+@model SurveyUP.Pages.Users.ChangeRole
+
+<h4>Edytuj użytkownika</h4>
+<hr />
+<form method="post">
+    <div class="row">
+        <div class="col-md-4">
+
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group">
+                Osoba:
+                <p>(@Model.InputModel.Email)  @Model.InputModel.FirstName @Model.InputModel.Name</p>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Wybierz rolę:</label>
+                <select asp-for="Role" class="form-control" asp-items="ViewBag.Roles"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Zapisz" class="btn btn-primary" />
+            </div>
+
+        </div>
+    </div>
+</form>
+<div>
+    <a asp-page="./Index" class="btn btn-danger">Powrót do listy użytkowników</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

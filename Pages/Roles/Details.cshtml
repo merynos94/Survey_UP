@@ -1,0 +1,36 @@
+﻿@page
+@model SurveyUP.Pages.Roles.DetailsModel
+
+<div>
+    <h4>Dostępne role w systemie</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.AspNetRole.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AspNetRole.Name)
+        </dd>
+        <dt class="col-sm-2">
+            Lista użytkowników
+        </dt>
+        <dd></dd>
+
+        @foreach (var user in Model.AspNetRole.Users)
+        {
+            <dt class="col-sm-2">
+              @*  @Html.DisplayNameFor(model => user.Name)*@
+            </dt>
+            <dd class="col-sm-10">
+
+                @Html.DisplayFor(model => user.FirstName)&nbsp;
+                @Html.DisplayFor(model => user.Name) (
+                @Html.DisplayFor(model => user.Email) )
+            </dd>
+        }
+
+    </dl>
+</div>
+<div>
+    <a asp-page="./Index" class="btn btn-danger">Powrót do ról</a>
+</div>

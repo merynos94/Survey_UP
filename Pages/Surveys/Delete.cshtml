@@ -1,0 +1,58 @@
+﻿@page
+@model SurveyUP.Pages.Surveys.DeleteModel
+
+<h3>Czy chcesz usunąć ankiete o tytule: @Html.DisplayFor(model => model.VtsTbSurvey.Title)?</h3>
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.VtsTbSurvey.CreationDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.VtsTbSurvey.CreationDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.VtsTbSurvey.OpenDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.VtsTbSurvey.OpenDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.VtsTbSurvey.CloseDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.VtsTbSurvey.CloseDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.VtsTbSurvey.Title)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.VtsTbSurvey.Title)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.VtsTbSurvey.ThankYouMessage)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.VtsTbSurvey.ThankYouMessage)
+        </dd>
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.VtsTbSurvey.Archive)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.VtsTbSurvey.Archive)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.VtsTbSurvey.Activated)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.VtsTbSurvey.Activated)
+        </dd>
+    </dl>
+
+    <form method="post">
+        <input type="hidden" asp-for="VtsTbSurvey.SurveyId" />
+        <input type="submit" value="Usuń" class="btn btn-danger" /> 
+        <a asp-page="Index" class="btn btn-danger">Powrót do listy ankiet</a>
+    </form>
+</div>

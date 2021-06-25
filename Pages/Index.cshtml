@@ -1,0 +1,72 @@
+﻿@page
+@using Microsoft.AspNetCore.Authorization
+@using SurveyUP.Data.Enums
+@inject IAuthorizationService AuthorizationService
+@model SurveyUP.Pages.IndexModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <p class="font-weight-normal">
+        Celem projektu dyplomowego było opracowanie autorskiego systemu umozliwiajacego
+        wprowadzanie ankiet ewaluacyjnych dla studentów, którzy odbyli praktyki
+        w miejscach pracy do tego przeznaczonych. Aplikacja umozliwia sprawniejsza obsługe
+        dokumentów, jak równiez swobodne zarzadzanie nimi. Dzieki intuicyjnemu interfejsowi
+        studenci moga wprowadzac dane, natomiast administrator w łatwy sposób
+        moze je obsługiwac i dokonywac wymaganych/potrzebnych modyfikacji.
+    </p>
+</div>
+
+<ul class="list-group">
+    <li class="list-group-item">
+        <button type="button" class="btn btn-primary btn-block">Menu</button>
+    </li>
+
+    @if ((await AuthorizationService.AuthorizeAsync(User, $"Require{Roles.Administrator}Role")).Succeeded)
+    {
+        <li class="list-group-item">
+            <a asp-area="" asp-page="/Users/Index" class="btn btn-warning btn-block">Lista użytkowników</a>
+        </li>
+        <li class="list-group-item">
+            <a asp-area="" asp-page="/Roles/Index" class="btn btn-warning btn-block">Lista roli</a>
+        </li>
+    }
+    @if ((await AuthorizationService.AuthorizeAsync(User, $"Require{Roles.Twórca}Role")).Succeeded)
+    {
+        <li class="list-group-item">
+            <a asp-area="" asp-page="/Surveys/Index" class="btn btn-warning btn-block">Lista ankiet</a>
+        </li>
+        <li class="list-group-item">
+            <a asp-area="" asp-page="/Questions/Index" class="btn btn-warning btn-block">Lista pytań</a>
+        </li>
+        <li class="list-group-item">
+            <a asp-area="" asp-page="/Answers/Index" class="btn btn-warning btn-block">Lista odpowiedzi</a>
+        </li>
+
+    }
+    @if ((await AuthorizationService.AuthorizeAsync(User, $"Require{Roles.Sekretariat}Role")).Succeeded)
+    {
+        <li class="list-group-item">
+            <a asp-area="" asp-page="/Voters/Index" class="btn btn-warning btn-block">Lista oddanych głosów</a>
+        </li>
+    }
+    @if ((await AuthorizationService.AuthorizeAsync(User, $"Require{Roles.Student}Role")).Succeeded)
+    {
+        <li class="list-group-item">
+            <a asp-area="" asp-page="/Public/Index" class="btn btn-warning btn-block">Wypełnij ankiety</a>
+        </li>
+    }
+    else
+    {
+        if (!(await AuthorizationService.AuthorizeAsync(User, $"Require{Roles.Sekretariat}Role")).Succeeded)
+        {
+            <li class="list-group-item">
+                <a class="btn btn-warning btn-block" asp-area="Identity" asp-page="/Account/Login">Zaloguj się by zobaczyć menu</a>
+            </li>
+        }
+    }
+</ul>
+<div class="text-center">
+    <img alt="The Pedagogical University of Cracow" src="~/images/up_logo_g_.png" class="img bg-primary" />
+</div>

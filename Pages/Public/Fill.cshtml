@@ -1,0 +1,162 @@
+﻿@page
+@model SurveyUP.Pages.Public.FillModel
+
+<h4>@Model.SurveyName</h4>
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+
+            @if (Model.QuestionsToFill is not null)
+            {
+
+                for (int i = 0; i < Model.QuestionsToFill.Count; i++)
+                {
+
+                    <h5>@Model.QuestionsToFill[i].QuestionText</h5>
+
+                    @for (int j = 0; j < Model.QuestionsToFill[i].Answers.Count; j++)
+                    {
+
+
+                        @switch (Model.QuestionsToFill[i].Answers[j].AnswerTypeId)
+                        {
+                            //jednokrotny wybór w linii
+                            case 1:
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input"
+                                           type="radio"
+                                           name="@Model.QuestionsToFill[i].QuestionId"
+                                           id="@Model.QuestionsToFill[i].Answers[j].AnswerId"
+                                           value="@Model.QuestionsToFill[i].Answers[j].AnswerId">
+
+                                    <label class="form-check-label"
+                                           for="@Model.QuestionsToFill[i].Answers[j].AnswerId">
+                                        @Model.QuestionsToFill[i].Answers[j].AnswerText
+                                    </label>
+
+                                </div>
+                                break;
+                            //Wielokrotny wybór w linii
+                            case 2:
+                                <div class="form-check form-check-inline">
+
+                                    <input class="form-check-input"
+                                           type="checkbox"
+                                           name="@Model.QuestionsToFill[i].QuestionId"
+                                           id="@Model.QuestionsToFill[i].Answers[j].AnswerId"
+                                           value="@Model.QuestionsToFill[i].Answers[j].AnswerId">
+
+
+                                    <label class="form-check-label"
+                                           for="@Model.QuestionsToFill[i].Answers[j].AnswerId">
+                                        @Model.QuestionsToFill[i].Answers[j].AnswerText
+                                    </label>
+                                </div>
+                                break;
+                            case 3:
+
+                                <div class="row g-2 align-items-center">
+                                    <div class="col-auto">
+                                        <label for="@Model.QuestionsToFill[i].Answers[j].AnswerId" class="col-form-label">
+                                            @Model.QuestionsToFill[i].Answers[j].AnswerText
+                                        </label>
+                                    </div>
+                                    <div class="col-12">
+                                        @Html.TextBox(
+                                            @Model.QuestionsToFill[i].Answers[j].AnswerId.ToString(),
+                                            string.Empty,
+                                            new
+                                                 {
+                                                    @class = "form-control",
+                                                    placeholder = @Model.QuestionsToFill[i].Answers[j].DefaultText
+                                                 })
+                                    </div>
+                                </div>
+
+                                break;
+                            //jednokrotny wybór
+                            case 4:
+                                <div class="form-check">
+                                    <input class="form-check-input"
+                                           type="radio"
+                                           name="@Model.QuestionsToFill[i].QuestionId"
+                                           id="@Model.QuestionsToFill[i].Answers[j].AnswerId"
+                                           value="@Model.QuestionsToFill[i].Answers[j].AnswerId">
+
+                                    <label class="form-check-label"
+                                           for="@Model.QuestionsToFill[i].Answers[j].AnswerId">
+                                        @Model.QuestionsToFill[i].Answers[j].AnswerText
+                                    </label>
+                                </div>
+                                break;
+                            //Wielokrotny wybór
+                            case 20:
+                                <div class="form-check">
+                                    <input class="form-check-input"
+                                           type="checkbox"
+                                           name="@Model.QuestionsToFill[i].QuestionId"
+                                           id="@Model.QuestionsToFill[i].Answers[j].AnswerId"
+                                           value="@Model.QuestionsToFill[i].Answers[j].AnswerId">
+                                    <label class="form-check-label"
+                                           for="@Model.QuestionsToFill[i].Answers[j].AnswerId">
+                                        @Model.QuestionsToFill[i].Answers[j].AnswerText
+                                    </label>
+                                </div>
+                                break;
+                            case 21:
+
+                                <div class="row g-3 align-items-center">
+                                    <div class="col-auto">
+                                        <label for="@Model.QuestionsToFill[i].Answers[j].AnswerId" class="col-form-label">
+                                            @Model.QuestionsToFill[i].Answers[j].AnswerText
+                                        </label>
+                                    </div>
+                                    <div class="col-auto">
+                                        @Html.TextBox(
+                                            @Model.QuestionsToFill[i].Answers[j].AnswerId.ToString(),
+                                            string.Empty,
+                                            new
+                                            {
+                                                @class = "form-control",
+                                                @type = "datetime-local"
+                                            })
+                                    </div>
+                                    <div class="col-auto">
+                                        <span id="@Model.QuestionsToFill[i].Answers[j].AnswerId" class="form-text">
+                                            @Model.QuestionsToFill[i].Answers[j].DefaultText
+                                        </span>
+                                    </div>
+                                </div>
+
+                                break;
+                            default:
+                                <strong>
+                                    !
+                                    @Model.QuestionsToFill[i].Answers[j].AnswerTypeId
+                                    !
+                                </strong>
+                                break;
+                        }
+
+
+                    }
+                }
+            }
+
+            <div class="form-group">
+                <input type="submit" value="Wypełnij" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index" class="btn btn-danger">Powrót do listy ankiet</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

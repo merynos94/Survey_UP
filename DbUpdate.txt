@@ -1,0 +1,17 @@
+﻿
+
+//Create identity tables
+add-migration  -Context "SurveyUP.Data.SurveyUpIdDbContext" 
+
+//DB Update for Identity
+update-database -Context "SurveyUP.Data.SurveyUpIdDbContext" -verbose 
+
+
+add-migration -Context "SurveyUP.Models.N3mikosContext" -verbose 
+update-database -Context "SurveyUP.Models.N3mikosContext" -verbose 
+
+
+
+
+
+

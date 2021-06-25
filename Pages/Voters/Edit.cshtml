@@ -1,0 +1,60 @@
+﻿@page
+@model SurveyUP.Pages.Voters.EditModel
+
+<h4>Edytuj głosującego</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="VtsTbVoter.VoterId" />
+            <div class="form-group">
+                <label asp-for="VtsTbVoter.Uid" class="control-label"></label>
+                <input asp-for="VtsTbVoter.Uid" class="form-control" />
+                <span asp-validation-for="VtsTbVoter.Uid" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VtsTbVoter.SurveyId" class="control-label"></label>
+                <input asp-for="VtsTbVoter.SurveyId" class="form-control" />
+                <span asp-validation-for="VtsTbVoter.SurveyId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VtsTbVoter.ContextUserName" class="control-label"></label>
+                <input asp-for="VtsTbVoter.ContextUserName" class="form-control" />
+                <span asp-validation-for="VtsTbVoter.ContextUserName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VtsTbVoter.VoteDate" class="control-label"></label>
+                <input asp-for="VtsTbVoter.VoteDate" class="form-control" />
+                <span asp-validation-for="VtsTbVoter.VoteDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VtsTbVoter.StartDate" class="control-label"></label>
+                <input asp-for="VtsTbVoter.StartDate" class="form-control" />
+                <span asp-validation-for="VtsTbVoter.StartDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VtsTbVoter.Ipsource" class="control-label"></label>
+                <input asp-for="VtsTbVoter.Ipsource" class="form-control" />
+                <span asp-validation-for="VtsTbVoter.Ipsource" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VtsTbVoter.Validated" class="control-label"></label>
+                <input asp-for="VtsTbVoter.Validated" class="form-control" />
+                <span asp-validation-for="VtsTbVoter.Validated" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Powrót do strony głównej</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

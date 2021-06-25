@@ -1,0 +1,42 @@
+﻿@page
+@model SurveyUP.Views.Answers.DeleteModel
+
+<h3>Czy chcesz usunąć odpowiedź?</h3>
+<div>
+    <h4></h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.VtsTbAnswer.Question)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.VtsTbAnswer.Question.QuestionText)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.VtsTbAnswer.AnswerText)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.VtsTbAnswer.AnswerText)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.VtsTbAnswer.DefaultText)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.VtsTbAnswer.DefaultText)
+        </dd>
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.VtsTbAnswer.AnswerType)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.VtsTbAnswer.AnswerType.Description)
+        </dd>
+    
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="VtsTbAnswer.AnswerId" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> 
+        <a asp-page="./Index" class="btn btn-danger" >Powrót do listy odpowiedzi</a>
+    </form>
+</div>
