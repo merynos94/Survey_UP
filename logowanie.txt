@@ -1,0 +1,30 @@
+host tunelujacy na Wasze zajecia z LG i AB
+ip: 149.156.25.37; port ssh: 415; 
+ 
+login: radoslaw.mikos
+haslo: lBnVrsunD2
+
+svn user: n3Mikos
+
+Sqlserver user: n3Mikos
+Hasło: almeria01#
+
+logowanie dla admina
+surveyup2021@gmail.com
+Surveyup202!
+
+logowanie dla student/sekretariat/admin/tworca
+merynos94@gmail.com
+Surveyup202!
+
+logowanie dla sekretariatu - wczesniej stworzone
+gpk41868@cuoly.com
+Halinka_123
+
+logowanie dla tworcy - wczesniej stworzone
+vis423@lite14.us
+Tworzacy@123
+
+logowanie dla studenta - wczesniej stworzone
+ekmdgybdhldbbsrlvi@twzhhq.com
+StUdEnT#03
