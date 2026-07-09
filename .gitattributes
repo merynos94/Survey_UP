@@ -1,0 +1,39 @@
+# Auto-detect text files and normalize line endings
+* text=auto eol=lf
+
+# Windows-specific
+*.sln          text eol=crlf
+*.bat          text eol=crlf
+*.cmd          text eol=crlf
+*.ps1          text eol=crlf
+
+# C# / .NET
+*.cs           text diff=csharp
+*.csproj       text merge=union
+*.cshtml       text
+*.razor        text
+*.json         text
+*.xml          text
+*.config       text
+
+# Web assets
+*.css          text
+*.js           text
+*.ts           text
+*.html         text
+*.md           text
+
+# Binary
+*.dll          binary
+*.exe          binary
+*.pdb          binary
+*.png          binary
+*.jpg          binary
+*.jpeg         binary
+*.gif          binary
+*.ico          binary
+*.woff         binary
+*.woff2        binary
+*.ttf          binary
+*.eot          binary
+*.pdf          binary

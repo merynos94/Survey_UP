@@ -34,7 +34,10 @@ Aplikacja webowa typu CRUD do zarządzania **ankietami ewaluacyjnymi studentów*
 
 ## Konfiguracja
 
-1. Skopiuj plik `appsettings.json` do lokalnego `appsettings.Development.json` (plik ten jest w `.gitignore`).
+1. Skopiuj `appsettings.example.json` do `appsettings.Development.json` (plik jest w `.gitignore` — nie trafi do repo).
+   ```bash
+   cp appsettings.example.json appsettings.Development.json
+   ```
 2. Uzupełnij `ConnectionStrings:DefaultConnection` swoim connection stringiem do SQL Server, np.:
    ```json
    "ConnectionStrings": {
