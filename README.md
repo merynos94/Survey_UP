@@ -1,100 +1,100 @@
 # Survey_UP
 
-Aplikacja webowa typu CRUD do zarządzania **ankietami ewaluacyjnymi studentów**, zbudowana w ramach pracy inżynierskiej. Umożliwia tworzenie ankiet, zarządzanie pytaniami i odpowiedziami, zapraszanie głosujących oraz przeglądanie zbiorczych wyników.
+A CRUD web application for managing **student evaluation surveys**, built as an engineering thesis project. It supports creating surveys, managing questions and answers, inviting voters, and reviewing aggregated results.
 
-## Stack technologiczny
+## Tech stack
 
 - **.NET 5** / **ASP.NET Core 5** (Razor Pages)
 - **Entity Framework Core 5** (Code-First + Migrations)
-- **Microsoft SQL Server** (produkcja) / **SQLite** (opcjonalnie)
-- **ASP.NET Core Identity** — rejestracja, logowanie, role
-- **Bootstrap** + jQuery (warstwa UI, `wwwroot/`)
+- **Microsoft SQL Server** (production) / **SQLite** (optional)
+- **ASP.NET Core Identity** — registration, login, roles
+- **Bootstrap** + jQuery (UI layer, `wwwroot/`)
 
-## Struktura projektu
+## Project structure
 
-| Katalog | Opis |
+| Directory | Description |
 |---|---|
-| `Pages/` | Widoki Razor Pages (Surveys, Questions, Answers, Voters, Users, Roles, Public, Shared) |
-| `Models/Tables/` | Encje EF Core (`VtsTb*`, `ApplicationUser`, `ApplicationRole`, …) |
-| `Models/Context/` | Dwa `DbContext`: `N3mikosContext` (dane domenowe) i `SurveyUpIdDbContext2` (Identity) |
-| `Migrations/` | Migracje EF Core dla obu kontekstów |
-| `Areas/Identity/` | Scaffoldowane strony logowania/rejestracji |
+| `Pages/` | Razor Pages views (Surveys, Questions, Answers, Voters, Users, Roles, Public, Shared) |
+| `Models/Tables/` | EF Core entities (`VtsTb*`, `ApplicationUser`, `ApplicationRole`, …) |
+| `Models/Context/` | Two `DbContext`s: `N3mikosContext` (domain data) and `SurveyUpIdDbContext2` (Identity) |
+| `Migrations/` | EF Core migrations for both contexts |
+| `Areas/Identity/` | Scaffolded login / registration pages |
 | `Services/` | `EmailSender` (SMTP) |
-| `Data/` | Helpery i enumy (np. `Roles`) |
-| `wwwroot/` | Zasoby statyczne (CSS, JS, obrazy, biblioteki) |
+| `Data/` | Helpers and enums (e.g. `Roles`) |
+| `wwwroot/` | Static assets (CSS, JS, images, libraries) |
 
-## Wymagania
+## Requirements
 
 - [.NET SDK 5.0](https://dotnet.microsoft.com/download/dotnet/5.0)
-- Microsoft SQL Server (lokalny, LocalDB lub kontener Docker)
-- (Opcjonalnie) narzędzie `dotnet-ef`:
+- Microsoft SQL Server (local, LocalDB, or Docker container)
+- (Optional) `dotnet-ef` global tool:
   ```bash
   dotnet tool install --global dotnet-ef --version 5.0.*
   ```
 
-## Konfiguracja
+## Configuration
 
-1. Skopiuj `appsettings.example.json` do `appsettings.Development.json` (plik jest w `.gitignore` — nie trafi do repo).
+1. Copy `appsettings.example.json` to `appsettings.Development.json` (the file is git-ignored — it won't be committed).
    ```bash
    cp appsettings.example.json appsettings.Development.json
    ```
-2. Uzupełnij `ConnectionStrings:DefaultConnection` swoim connection stringiem do SQL Server, np.:
+2. Fill in `ConnectionStrings:DefaultConnection` with your SQL Server connection string, e.g.:
    ```json
    "ConnectionStrings": {
      "DefaultConnection": "Server=(localdb)\\mssqllocaldb;Database=SurveyUP;Trusted_Connection=True;MultipleActiveResultSets=true"
    }
    ```
-3. Uzupełnij dane SMTP w sekcji `EmailSender` (host, port, login, hasło).
+3. Fill in the SMTP settings in the `EmailSender` section (host, port, username, password).
 
-> **Uwaga bezpieczeństwa:** Nie commituj rzeczywistych haseł i connection stringów. Używaj [User Secrets](https://learn.microsoft.com/aspnet/core/security/app-secrets):
+> **Security note:** Never commit real passwords or connection strings. Use [User Secrets](https://learn.microsoft.com/aspnet/core/security/app-secrets) instead:
 > ```bash
 > dotnet user-secrets set "ConnectionStrings:DefaultConnection" "..."
 > dotnet user-secrets set "EmailSender:Password" "..."
 > ```
 
-## Uruchomienie
+## Getting started
 
 ```bash
-# 1. Klon i wejście do katalogu
-git clone <repo-url>
+# 1. Clone and enter the project
+git clone https://github.com/merynos94/Survey_UP.git
 cd Survey_UP
 
-# 2. Restore zależności
+# 2. Restore dependencies
 dotnet restore
 
-# 3. Aplikacja migracji – dwa osobne konteksty
+# 3. Apply migrations — two separate contexts
 dotnet ef database update --context SurveyUpIdDbContext2
 dotnet ef database update --context N3mikosContext
 
-# 4. Start aplikacji
+# 4. Run the application
 dotnet run
 ```
 
-Aplikacja domyślnie nasłuchuje pod:
+The application listens on:
 - `https://localhost:5001`
 - `http://localhost:5000`
 
-### Alternatywnie – Visual Studio / Rider
+### Alternative — Visual Studio / Rider
 
-Otwórz `SurveyUP.sln` i uruchom profil **SurveyUP** (albo **IIS Express**). Profile znajdują się w `Properties/launchSettings.json`.
+Open `SurveyUP.sln` and run the **SurveyUP** profile (or **IIS Express**). Profiles are defined in `Properties/launchSettings.json`.
 
-## Migracje EF Core
+## EF Core migrations
 
-Projekt korzysta z **dwóch** `DbContext`, dlatego każdą operację EF trzeba wskazać flagą `--context` (CLI) lub `-Context` (Package Manager Console).
+The project uses **two** `DbContext`s, so every EF command must specify one via `--context` (CLI) or `-Context` (Package Manager Console).
 
 ```bash
-# Dodanie nowej migracji
-dotnet ef migrations add <Nazwa> --context N3mikosContext
-dotnet ef migrations add <Nazwa> --context SurveyUpIdDbContext2
+# Add a new migration
+dotnet ef migrations add <Name> --context N3mikosContext
+dotnet ef migrations add <Name> --context SurveyUpIdDbContext2
 
-# Aktualizacja bazy
+# Update the database
 dotnet ef database update --context N3mikosContext
 dotnet ef database update --context SurveyUpIdDbContext2
 ```
 
-## Role i pierwsze logowanie
+## Roles and first login
 
-Role są zdefiniowane w `Data/Enums/Roles.cs`. Konta użytkowników zakłada się przez `/Identity/Account/Register` — konto wymaga potwierdzenia mailem (opcja `RequireConfirmedAccount = true` w `Startup.cs`).
+Roles are defined in `Data/Enums/Roles.cs`. User accounts are created through `/Identity/Account/Register` — accounts require email confirmation (`RequireConfirmedAccount = true` in `Startup.cs`).
 
 ## Build / Publish
 
@@ -103,6 +103,6 @@ dotnet build -c Release
 dotnet publish -c Release -o ./publish
 ```
 
-## Licencja
+## License
 
-Projekt studencki (praca inżynierska). Do celów edukacyjnych.
+Student project (engineering thesis). For educational purposes.
