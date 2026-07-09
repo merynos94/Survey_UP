@@ -1,0 +1,45 @@
+﻿@page
+@model SurveyUP.Pages.Voters.SummaryModel
+
+<div>
+    <h4>Pytania i odpowiedzi</h4>
+    <hr />
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.AllAnswers[0].QuestionText)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AllAnswers[0].AnswerText)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AllAnswers[0].AnswersCount)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.AllAnswers)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.QuestionText)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AnswerText)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AnswersCount)
+                    </td>
+                    <td>
+                        <a asp-page="./Details" asp-route-id="@item.AnswerId" class="btn btn-secondary">Oddane głosy</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<div>    
+    <a asp-page="./Index" class="btn btn-danger">Powrót do listy głosujących</a>
+</div>

@@ -1,0 +1,46 @@
+﻿@page
+@model SurveyUP.Pages.Voters.DeleteModel
+
+<h3>Czy na pewno chcesz usunąć głosującego?</h3>
+<div>
+    <hr />
+    <dl class="row">
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.VtsTbVoter.SurveyId)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.VtsTbVoter.SurveyId)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.VtsTbVoter.VoteDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.VtsTbVoter.VoteDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.VtsTbVoter.StartDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.VtsTbVoter.StartDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.VtsTbVoter.Ipsource)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.VtsTbVoter.Ipsource)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.VtsTbVoter.Validated)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.VtsTbVoter.Validated)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="VtsTbVoter.VoterId" />
+        <input type="submit" value="Usuń" class="btn btn-danger" /> 
+        <a asp-page="./Index" class="btn btn-danger" >Powrót do listy głosujących</a>
+    </form>
+</div>

@@ -1,0 +1,26 @@
+﻿@page
+@model SurveyUP.Pages.ErrorModel
+@{
+    ViewData["Title"] = "Error";
+}
+
+<h1 class="text-danger">Błąd.</h1>
+<h2 class="text-danger">Podczas przetwarzania żądania wystąpił błąd.</h2>
+
+@if (Model.ShowRequestId)
+{
+    <p>
+        <strong>Żądanie ID:</strong> <code>@Model.RequestId</code>
+    </p>
+}
+
+<h3>Tryb rozwoju</h3>
+<p>
+    Swapping to the <strong>Development</strong> environment displays detailed information about the error that occurred.
+</p>
+<p>
+    <strong>Środowiska programistycznego nie należy włączać dla wdrożonych aplikacji.</strong>
+    Może to skutkować wyświetlaniem poufnych informacji z wyjątków użytkownikom końcowym.
+    W przypadku debugowania lokalnego włącz <strong>Development</strong> środowisko, ustawiając <strong>ASPNETCORE_ENVIRONMENT</strong> zmienna środowiskowa na <strong>Development</strong>
+    i ponowne uruchomienie aplikacji.
+</p>

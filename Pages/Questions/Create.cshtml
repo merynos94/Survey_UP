@@ -1,0 +1,40 @@
+﻿@page
+@model SurveyUP.Pages.Questions.CreateModel
+
+<h4>Stwórz pytanie</h4>
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label class="control-label">Wybierz ankietę:</label>
+                <select asp-for="VtsTbQuestion.SurveyId" class="form-control" asp-items="ViewBag.SurveyId"></select>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="VtsTbQuestion.QuestionText" class="control-label"></label>
+                <input asp-for="VtsTbQuestion.QuestionText" class="form-control" />
+                <span asp-validation-for="VtsTbQuestion.QuestionText" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VtsTbQuestion.DisplayOrder" class="control-label"></label>
+                <input asp-for="VtsTbQuestion.DisplayOrder" class="form-control" />
+                <span asp-validation-for="VtsTbQuestion.DisplayOrder" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Stwórz pytanie" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index" class="btn btn-danger">Powrót do listy pytań</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

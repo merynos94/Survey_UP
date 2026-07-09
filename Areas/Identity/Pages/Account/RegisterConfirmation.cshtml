@@ -1,0 +1,23 @@
+﻿@page
+@model RegisterConfirmationModel
+@{
+    ViewData["Title"] = "Dziękujemy za rejestrację";
+}
+
+<h1>@ViewData["Title"]</h1>
+@{
+    if (@Model.DisplayConfirmAccountLink)
+    {
+    <p>
+        Na Twoją skrzynkę email wysłaliśmy link aktywacyjny. Kliknij Potwierdzenie, aby móc korzystać z dostępnych funkcji serwisu.
+        @*<a href="https://aka.ms/aspaccountconf">these docs</a> for how to configure a real email sender.
+        Normally this would be emailed: <a id="confirm-link" href="@(Model.EmailConfirmationUrl)">Kliknij tutaj, aby potwierdzić swoje konto</a>*@
+    </p>
+    }
+    else
+    {
+<p>
+        Sprawdź pocztę, aby potwierdzić swoje konto.
+</p>
+    }
+}

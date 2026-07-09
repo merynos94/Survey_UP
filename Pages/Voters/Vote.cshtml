@@ -1,0 +1,124 @@
+﻿@page
+@using SurveyUP.Pages.Voters
+@model SurveyUP.Pages.Voters.VoteModel
+
+<h4>@Model.SurveyName</h4>
+<hr />
+<div class="row">
+    <div class="col-md-12">
+
+
+        @if (Model.QuestionsToFill is not null)
+        {
+
+            <p>Data początku @Model.SurveyVoter.StartDate</p>
+            <p>Data zapisania @Model.SurveyVoter.VoteDate</p>
+            <hr />
+
+
+            foreach (var q in @Model.QuestionsToFill)
+            {
+                string inputIsChecked = string.Empty;
+                string inline = string.Empty;
+                <h5>@q.QuestionText</h5>
+
+                if (!string.IsNullOrEmpty(@q.HelpText))
+                {
+                    <small>(@q.HelpText)</small><br />
+                }
+
+                @foreach (var a in q.Answers)
+                {
+                    inputIsChecked = string.Empty;
+                    inline = string.Empty;
+                    switch (a.AnswerTypeId)
+                    {
+                        //jednokrotny wybór
+                        case 1:
+                        case 4:
+                            
+                            if (a.VoterAnswers.Count > 0)
+                            {
+                                inputIsChecked = "checked";
+                            }
+                            if (a.AnswerTypeId == 1) inline = "form-check-inline";
+                            
+                            <div class="form-check @inline">
+                                <input class="form-check-input" type="radio"
+                                       name="n_@a.AnswerId"
+                                       id="@a.AnswerId"
+                                       value="" @inputIsChecked disabled>
+
+                                <label class="form-check-label"
+                                       for="@a.AnswerId">
+                                    @a.AnswerText
+                                </label>
+
+                            </div>
+                            break;
+                        //Wielokrotny wybór
+                        case 2:
+                        case 20:
+                            if (a.AnswerTypeId == 1) inline = "form-check-inline";
+                            if (a.VoterAnswers.Count > 0)
+                            {
+                                inputIsChecked = "checked";
+                            }
+                            <div class="form-check @inline">
+                                <small>@a.DefaultText</small>
+                                <input class="form-check-input" type="checkbox"
+                                       id="@a.AnswerId"
+                                       value="" @inputIsChecked disabled>
+
+
+                                <label class="form-check-label"
+                                       for="@a.AnswerId">
+                                    @a.AnswerText
+                                </label>
+
+                            </div>
+                            break;
+                        //pole tekstowe
+                        //Pole daty
+                        case 3:
+                        case 21:
+
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="@a.AnswerId">@a.AnswerText</span>
+                                </div>
+                                @foreach (var va in a.VoterAnswers)
+                                {
+                                    foreach (var vaa in va.Answers)
+                                    {
+                                        <span class="form-control">@vaa</span>
+                                    }
+                                }
+                            </div>
+
+                            break;
+
+                        default:
+                            <strong>
+                                !
+                                @a.AnswerTypeId
+                                !
+                            </strong>
+                            break;
+                    }
+
+
+                }
+            }
+        }
+
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index" class="btn btn-primary">Powrót do listy ankiet</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

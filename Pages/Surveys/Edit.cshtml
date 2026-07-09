@@ -1,0 +1,56 @@
+﻿@page
+@model SurveyUP.Pages.Surveys.EditModel
+
+<h4>Edytuj ankiete</h4>
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="VtsTbSurvey.SurveyId" />
+
+            <div class="form-group">
+                <label asp-for="VtsTbSurvey.OpenDate" class="control-label"></label>
+                <input asp-for="VtsTbSurvey.OpenDate" class="form-control" />
+                <span asp-validation-for="VtsTbSurvey.OpenDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VtsTbSurvey.CloseDate" class="control-label"></label>
+                <input asp-for="VtsTbSurvey.CloseDate" class="form-control" />
+                <span asp-validation-for="VtsTbSurvey.CloseDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VtsTbSurvey.Title" class="control-label"></label>
+                <input asp-for="VtsTbSurvey.Title" class="form-control" />
+                <span asp-validation-for="VtsTbSurvey.Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VtsTbSurvey.ThankYouMessage" class="control-label"></label>
+                <input asp-for="VtsTbSurvey.ThankYouMessage" class="form-control" />
+                <span asp-validation-for="VtsTbSurvey.ThankYouMessage" class="text-danger"></span>
+            </div>
+
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="VtsTbSurvey.Archive" /> @Html.DisplayNameFor(model => model.VtsTbSurvey.Archive)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="VtsTbSurvey.Activated" /> @Html.DisplayNameFor(model => model.VtsTbSurvey.Activated)
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Zapisz" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index" class="btn btn-danger">Powrót do listy ankiet</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

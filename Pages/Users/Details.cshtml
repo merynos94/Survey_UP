@@ -1,0 +1,139 @@
+﻿@page
+@model SurveyUP.Pages.Users.DetailsModel
+
+<div>
+    <h4>Szczegóły użytkownika</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.AspNetUsers.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AspNetUsers.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.AspNetUsers.FirstName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AspNetUsers.FirstName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.AspNetUsers.MiddleName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AspNetUsers.MiddleName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.AspNetUsers.NameMother)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AspNetUsers.NameMother)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.AspNetUsers.NameFather)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AspNetUsers.NameFather)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.AspNetUsers.BirthDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AspNetUsers.BirthDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.AspNetUsers.Pesel)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AspNetUsers.Pesel)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.AspNetUsers.BirthPlace)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AspNetUsers.BirthPlace)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.AspNetUsers.Email)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AspNetUsers.Email)
+        </dd>
+        <dt class="col-sm-2">
+            Użytkownik potwierdzony
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AspNetUsers.EmailConfirmed)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.AspNetUsers.AlbumNumber)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AspNetUsers.AlbumNumber)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.AspNetUsers.Department)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AspNetUsers.Department)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.AspNetUsers.UniversityDirection)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AspNetUsers.UniversityDirection)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.AspNetUsers.Degree)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AspNetUsers.Degree)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.AspNetUsers.LearningForm)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AspNetUsers.LearningForm)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.AspNetUsers.PermanentAddress)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AspNetUsers.PermanentAddress)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.AspNetUsers.PermanentCity)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AspNetUsers.PermanentCity)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.AspNetUsers.PermanentPostalCode)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AspNetUsers.PermanentPostalCode)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.AspNetUsers.CorrespondAddress)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AspNetUsers.CorrespondAddress)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.AspNetUsers.CorrespondCity)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AspNetUsers.CorrespondCity)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.AspNetUsers.CorrespondPostalCode)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AspNetUsers.CorrespondPostalCode)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.AspNetUsers.Id" class="btn btn-secondary">Edytuj</a> 
+    <a asp-page="./Index" class="btn btn-danger">Powrót do strony głównej</a>
+</div>

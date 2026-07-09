@@ -1,0 +1,89 @@
+﻿@page
+
+@model SurveyUP.Pages.Public.IndexModel
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.VtsTbSurvey[0].CreationDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VtsTbSurvey[0].Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VtsTbSurvey[0].OpenDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VtsTbSurvey[0].CloseDate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.VtsTbSurvey)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreationDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OpenDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CloseDate)
+                </td>
+
+     
+
+                <td>
+                    @if (!item.Archive && item.Activated)
+                    {
+                        if (item.OpenDate is not null)
+                        {
+
+                            if (DateTime.Compare(DateTime.Now, item.OpenDate.Value) >= 0)
+                            {
+
+                                if (item.CloseDate is not null)
+                                {
+                                    if (DateTime.Compare(DateTime.Now, item.CloseDate.Value) <= 0)
+                                    {
+                                        <a asp-page="./Fill" asp-route-id="@item.SurveyId" class="btn btn-success">Wypełnij</a>
+                                    }
+                                    else
+                                    {
+                                        <a asp-page="" class="btn btn-dark">Zakończona</a>
+                                    }
+                                }
+                                else
+                                {
+                                    <a asp-page="./Fill" asp-route-id="@item.SurveyId" class="btn btn-success">Wypełnij</a>
+                                }
+                            }
+                            else
+                            {
+                                <a asp-page="" class="btn btn-dark">Jeszcze nie rozpoczęta</a>
+                            }
+                        }
+                        else
+                        {
+                            <a asp-page="" class="btn btn-dark">Jeszcze nie rozpoczęta</a>
+                        }
+                    }
+                    else
+                    {
+                        <a asp-page="" class="btn btn-dark">Archiwalna lub nie aktywna</a>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div>
+    <a asp-page="../Index" class="btn btn-danger">Powrót do strony głównej</a>
+
+</div>

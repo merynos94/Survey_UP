@@ -1,0 +1,53 @@
+﻿@page
+@model SurveyUP.Pages.Voters.DetailsModel
+
+<div>
+    <hr />
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.AllAnswers[0].VoterId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AllAnswers[0].AnswerText)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AllAnswers[0].Answers)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.AllAnswers)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.VoterId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AnswerText)
+                </td>
+                <td>
+                    <table class="table">
+                        <tbody>
+                            @foreach(var answer in item.Answers)
+                            {
+                                <tr>
+                                    <td>
+                                        @Model.GetAnswer(answer)
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </td>
+
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<div>    
+    <a asp-page="./Index" class="btn btn-danger">Powrót do listy głosujących</a>
+</div>

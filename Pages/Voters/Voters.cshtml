@@ -1,0 +1,43 @@
+﻿@page
+@model SurveyUP.Pages.Voters.VotersModel
+
+    <div>
+        <h4>Głosowania</h4>
+        <hr />
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Votes[0].SurveyTitle)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Votes[0].VoterId)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Votes)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.SurveyTitle)
+                        </td>
+                        <td>
+                            (@item.VoterId)
+                            @if (item.Voter is not null)
+                            {
+                                @item.Voter.FirstName @item.Voter.Name
+                            }
+                        </td>
+                        <td>
+                            <a asp-page="./Vote" asp-route-id="@item.VoterId" class="btn btn-primary">Wypełniona ankieta</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <a asp-page="./Index" class="btn btn-danger">Powrót do listy głosujących</a>
+    </div>

@@ -1,0 +1,72 @@
+﻿@page
+@model SurveyUP.Pages.Surveys.IndexModel
+
+<p>
+    <a asp-page="Create" class="btn btn-success">Stwórz ankietę</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.VtsTbSurvey[0].CreationDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VtsTbSurvey[0].Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VtsTbSurvey[0].OpenDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VtsTbSurvey[0].CloseDate)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.VtsTbSurvey[0].ThankYouMessage)
+            </th>            
+            <th>
+                @Html.DisplayNameFor(model => model.VtsTbSurvey[0].Archive)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VtsTbSurvey[0].Activated)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.VtsTbSurvey) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreationDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OpenDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CloseDate)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.ThankYouMessage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Archive)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Activated)
+            </td>
+        <td>
+            <a asp-page="./Edit" asp-route-id="@item.SurveyId" class="btn btn-primary">Edytuj</a>
+            <a asp-page="./Details" asp-route-id="@item.SurveyId" class="btn btn-secondary">Szczegóły</a>
+            <a asp-page="./Delete" asp-route-id="@item.SurveyId" class="btn btn-danger">Usuń</a>
+            <a asp-page="./Fill" asp-route-id="@item.SurveyId" class="btn btn-success">Wypełnij</a>
+        </td>
+        </tr>
+}
+    </tbody>
+</table>
+<div>
+    <a asp-page="../Index" class="btn btn-danger">Powrót do strony głównej</a>
+</div>
